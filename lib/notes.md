@@ -6,9 +6,6 @@ plan:
         - update tests with real data
 
 
-run npm i in the terminal
-need weatherbit key/ locationiq token/ yelp key
-
 once tests are passing run: 
 (acp to github)
 heroku create

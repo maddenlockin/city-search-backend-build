@@ -9,16 +9,16 @@ describe('app routes', () => {
     test('returns location data', async() => {
 
       const expectation = {
-        'formatted_query': 'Seattle, WA, USA',
-        'latitude': '47.606210',
-        'longitude': '-122.332071'
+        'formatted_query': 'Seattle, King County, Washington, USA',
+        'latitude': '47.6038321',
+        'longitude': '-122.3300624'
       };
 
       const data = await fakeRequest(app)
         .get('/location?search=seattle')
         .expect('Content-Type', /json/)
         .expect(200);
-
+      console.log(data.body);
       expect(data.body).toEqual(expectation);
     });
 
@@ -31,7 +31,21 @@ describe('app routes', () => {
       const expectation = [
         // use the below .any to make this dynamic
         { forecast: expect.any(String), time: expect.any(String) },
-        // x however many days the api auto generates
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) },
+        { forecast: expect.any(String), time: expect.any(String) }
       ];
 
       const data = await fakeRequest(app)
@@ -42,6 +56,7 @@ describe('app routes', () => {
       // the issue here is that it is stateFUL, and changes over time. 
       expect(data.body).toEqual(expectation);
     });
+
     test('returns review data', async() => {
 
       // const expectation = {
