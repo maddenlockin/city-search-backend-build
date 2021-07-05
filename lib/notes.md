@@ -9,7 +9,7 @@ plan:
 once tests are passing run: 
 (acp to github)
 heroku create
-npm run setup:heroku
+npm run setup-heroku
 git push heroku main:master
     go to heroku dashboard and add keys to Config Vars for site
     then put deployed site's url in the input on the frontend
